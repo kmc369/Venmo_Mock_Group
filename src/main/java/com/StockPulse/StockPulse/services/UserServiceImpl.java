@@ -4,7 +4,7 @@ import com.StockPulse.StockPulse.models.User;
 import com.StockPulse.StockPulse.repos.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-
+//Hello Ami!
 
 @Service
 public class UserServiceImpl implements UserService{
