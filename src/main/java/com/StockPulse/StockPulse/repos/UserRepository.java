@@ -1,3 +1,4 @@
+/*
 package com.StockPulse.StockPulse.repos;
 
 import com.StockPulse.StockPulse.models.User;
@@ -12,3 +13,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 //inherits all methods from jpa repo interface for CRUD on user entities
 
 }
+*/
