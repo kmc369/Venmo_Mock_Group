@@ -1,4 +1,4 @@
-package com.StockPulse.StockPulse.services;
+/*package com.StockPulse.StockPulse.services;
 
 import com.StockPulse.StockPulse.models.User;
 import com.StockPulse.StockPulse.repos.UserRepository;
@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-
+@Service
 public class UserServiceImpl implements UserService{
+
+
     private final UserRepository userRepository;
 
 
@@ -15,9 +17,9 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
-    @Override
-    public User createUser(String username, String password, String email) {
-        User newUser  = new User(username, password,email);
+    //@Override
+    public User createUser(Long id,String username, String password, String email) {
+        User newUser  = new User(id, username, password,email);
         return userRepository.save(newUser);
     }
 
@@ -30,4 +32,4 @@ public class UserServiceImpl implements UserService{
     public void logout(User user) {
         //do i need logout operations ?
     }
-}
+}*/

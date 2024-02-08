@@ -1,3 +1,4 @@
+/*
 package com.StockPulse.StockPulse.controller;
 
 
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 public class UserController {
+
+    @Autowired
     private final UserService userService;
 
     public  UserController(UserService userService){
@@ -34,3 +37,4 @@ public class UserController {
         userService.logoutUser(user);
     }
 }
+*/

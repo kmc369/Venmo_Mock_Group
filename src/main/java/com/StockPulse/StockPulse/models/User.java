@@ -1,16 +1,21 @@
+/*
 package com.StockPulse.StockPulse.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 
-
+@Data
+@AllArgsConstructor
 public class User {
     private Long id;
     private String username;
     private String password;
     private String email;
 
-    public User(Long id,String username, String password, String email) {
+   */
+/* public User(Long id,String username, String password, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -36,5 +41,7 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
+    }*//*
+
 }
+*/
