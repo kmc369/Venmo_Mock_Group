@@ -1,40 +1,31 @@
-/*
 package com.StockPulse.StockPulse.controller;
 
-
+import com.StockPulse.StockPulse.models.LoginUserDTO;
+import com.StockPulse.StockPulse.models.RegisterUserDTO;
 import com.StockPulse.StockPulse.models.User;
 import com.StockPulse.StockPulse.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+@RestController
 public class UserController {
 
     @Autowired
-    private final UserService userService;
+    private UserService userService;
 
-    public  UserController(UserService userService){
-        this.userService = new userService;
-    }
 
-    @Autowired
-    public UserController(UserService userService){
-        this.userService = userService;
-    }
 
     @PostMapping("/register")
-    public User registerUser(@RequestParam String username, @RequestParam String email, @RequestParam String password){
-        return userService.createUser(username,password,email);
+    public ResponseEntity<?> registerUser(@RequestBody RegisterUserDTO dto){
+        return userService.returnsResponseForRegisteringUser(dto);
     }
+
+
 
     @PostMapping("/login")
-    public User loginUser(@RequestParam String username, @RequestParam String password){
-        return userService.loginUser(username,password);
+    public ResponseEntity<?> loginUser(@RequestBody LoginUserDTO dto){
+        return userService.returnsUserForLogin(dto);
     }
 
-    @PostMapping("/logout")
-    public void logoutUser (@RequestBody User user){
-        userService.logoutUser(user);
-    }
 }
-*/
