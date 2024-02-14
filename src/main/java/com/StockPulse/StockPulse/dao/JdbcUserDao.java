@@ -19,6 +19,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class JdbcUserDao implements UserDao {
 
+    //find user by identifier
+    private static final String SQL_FIND_BY_ID = "SELECT * FROM users WHERE id = ?";
+    //find all users
+    private static final String SQL_FIND_ALL = "SELECT * FROM users";
+    //insert new user to database
+    private static final String SQL_INSERT = "INSERT INTO users (username, password, email, last_login) VALUES (?, ?, ?, ?)";
+    //update an existing user to database
+    private static final String SQL_UPDATE = "UPDATE users SET username = ?, password = ?, email = ?, last_login = ? WHERE id = ?";
+    //delete user by identifer
+    private static final String SQL_DELETE_BY_ID = "DELETE FROM users WHERE id = ?";
+
+
     //JDBC Connectivity Object
     private JdbcTemplate jdbcTemplate;
 
