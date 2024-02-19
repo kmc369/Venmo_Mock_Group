@@ -21,6 +21,6 @@ public interface UserDao {
 
 
     // TODO - Delete User
-    void deleteUser(int userId);
+    void deleteUser(Long userId);
 
 }
