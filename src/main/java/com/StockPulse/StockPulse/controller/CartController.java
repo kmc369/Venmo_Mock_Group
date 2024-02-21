@@ -30,7 +30,7 @@ public class CartController {
         return cartList;
     }
 
-
+ 
     @DeleteMapping("/api/cart/stock/{id}")
     public List<Stock> deleteFromCart(int stock_id, int cart_id) {
         //find the cart by the id
