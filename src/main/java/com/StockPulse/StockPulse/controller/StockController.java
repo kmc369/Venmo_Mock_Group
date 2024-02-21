@@ -20,7 +20,7 @@ public class StockController {
         return stockService.returnsResponseForCreatingStockEntity();
     }
 
-    @PostMapping("/update_quantity")
+    /* @PostMapping("/update_quantity")
     public void updateQuantity(int newQuantity) {
         // This method will be implemented later.
     }
@@ -37,6 +37,11 @@ public class StockController {
 
     @PostMapping("/update_id")
     public void updateId(long new_id) {
+        // This method will be implemented later.
+    }
+
+    @PostMapping("update_symbol")
+    public void updateSymbol(String newSymbol) {
         // This method will be implemented later.
     }
 
@@ -63,4 +68,10 @@ public class StockController {
         // This method will be implemented later.
         return 0;
     }
+
+    @GetMapping("/get_symbol")
+    public String getSymbol() {
+        // This method will be implemented later.
+        return null;
+    } */
 }

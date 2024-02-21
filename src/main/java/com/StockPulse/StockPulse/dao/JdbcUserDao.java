@@ -57,7 +57,7 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public void deleteUser(Long userId) {
+    public void deleteUser(long userId) {
 
         // TODO - Delete User logic implementation
 

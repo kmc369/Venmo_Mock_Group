@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class User {
 
-    private Long id;
+    private long id;
     private String username;
     private String password;
 
