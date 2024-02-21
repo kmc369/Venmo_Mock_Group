@@ -51,7 +51,7 @@ public class JdbcStockDao implements StockDao {
     }
 
     @Override
-    public void deleteStock(Long stockId) {
+    public void deleteStock(long stockId) {
         // TODO - Delete Stock logic implementation
     }
 }

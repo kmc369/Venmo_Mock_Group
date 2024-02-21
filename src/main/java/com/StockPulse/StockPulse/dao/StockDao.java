@@ -17,5 +17,5 @@ public interface StockDao {
     Stock getStock(Stock stock);
 
     // TODO - Delete Stock
-    void deleteStock(Long stockId);
+    void deleteStock(long stockId);
 }

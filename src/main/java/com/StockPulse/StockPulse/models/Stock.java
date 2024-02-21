@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Stock {
-    private Long stock_id;
+    private long stock_id;
     private int quantity;
     private double cost;
     private String owner;

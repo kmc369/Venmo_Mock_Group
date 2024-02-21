@@ -36,7 +36,7 @@ public class StockController {
     }
 
     @PostMapping("/update_id")
-    public void updateId(Long new_id) {
+    public void updateId(long new_id) {
         // This method will be implemented later.
     }
 
