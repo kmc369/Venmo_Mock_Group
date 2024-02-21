@@ -24,9 +24,11 @@ public class UserService {
     public ResponseEntity<User> returnsUserForLogin(LoginUserDTO dto){
 
         // return user from the dao
+        dao.
 
         return ResponseEntity.ok(new User());
     }
+
 
 
     // Accepts the Information required to register User TODO

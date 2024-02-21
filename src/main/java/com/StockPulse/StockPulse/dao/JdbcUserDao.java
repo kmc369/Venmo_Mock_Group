@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 
 /*
    Implements the CRUD operations from the UserDao interface and will pass
@@ -35,37 +37,27 @@ public class JdbcUserDao implements UserDao {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public void RegisterUser(RegisterUserDTO dto) {
-
-        // TODO - Create User logic implementation
-
-    }
-
-    @Override
-    public void editUser(User user) {
-
-        // TODO - Update User logic implementation
-
-    }
-
-    @Override
-    public User getUserForLogin(LoginUserDTO dto) {
-
-        // TODO - Read/Get User logic implementation
-
+    public User findById(Long id) {
         return null;
     }
 
     @Override
-    public void deleteUser(int userId) {
+    public List<User> findAll() {
+        return null;
+    }
 
-        // TODO - Delete User logic implementation
+    @Override
+    public void save(User user) {
 
     }
 
+    @Override
+    public void update(User user) {
 
+    }
 
+    @Override
+    public void deleteById(Long id) {
 
-
-
+    }
 }
