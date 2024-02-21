@@ -16,4 +16,5 @@ public class Stock {
     private double cost;
     private String symbol;
     private String owner;
+    private long cart_id;
 }

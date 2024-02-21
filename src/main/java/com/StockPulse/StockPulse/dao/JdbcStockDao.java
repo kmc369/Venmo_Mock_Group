@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import java.util.List;
 
 
 /*
@@ -18,11 +19,32 @@ import org.springframework.stereotype.Component;
 @Component
 public class JdbcStockDao implements StockDao {
     
+    //find user by identifier
+    private static final String SQL_FIND_BY_ID = "SELECT * FROM stocks WHERE id = ?";
+    //find all users
+    private static final String SQL_FIND_ALL = "SELECT * FROM stocks";
+    //insert new user to database
+    private static final String SQL_INSERT = "INSERT INTO stocks (stock_id, quantity, cost, symbol, owner, cart_id) VALUES (?, ?, ?, ?, ?)";
+    //update an existing user to database
+    private static final String SQL_UPDATE = "UPDATE stocks SET stock_id = ?, quantity = ?, cost = ?, symbol = ?, owner = ?, cart_id = ? WHERE id = ?";
+    //delete user by identifer
+    private static final String SQL_DELETE_BY_ID = "DELETE FROM stocks WHERE id = ?";
+
     //JDBC Connectivity Object
     private JdbcTemplate jdbcTemplate;
 
     //StockController Object
     private StockController stockController;
+
+    @Override
+    public Stock findById(long id) {
+        return null;
+    }
+
+    @Override
+    public List<Stock> findAll() {
+        return null;
+    }
 
     @Override
     public void createStock() {
@@ -31,34 +53,14 @@ public class JdbcStockDao implements StockDao {
     }
 
     @Override
-    public void updateIdOfStock(Stock stock) {
-        // TODO - Update ID of Stock logic implementation
-    }
-
-    @Override
-    public void updateQuantityOfStock(Stock stock) {
-        // TODO - Update Quantity of Stock logic implementation
-    }
-
-    @Override
-    public void updatePriceOfStock(Stock stock) {
-        // TODO - Update Price of Stock logic implementation
-    }
-
-    @Override
-    public void updateOwnerOfStock(Stock stock) {
-        // TODO - Update Owner of Stock logic implementation
-    }
-
-    @Override
-    public void updateSymbolOfStock(Stock stock) {
-        // TODO - Update Symbol of Stock logic implementation
+    public void updateStock(Stock stock) {
+        // TODO - Update Stock logic implementation
     }
 
     @Override
     public Stock getStock() {
         // TODO - Read/Get Info of Stock logic implementation
-        var sql = "SELECT stock_id, quantity, cost, symbol, owner FROM stocks WHERE stock_id = ?;";
+        var sql = "SELECT stock_id, quantity, cost, symbol, owner, cart_id FROM stocks WHERE stock_id = ?;";
         Stock stock = null;
         try{
             SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
@@ -82,7 +84,8 @@ public class JdbcStockDao implements StockDao {
                 rs.getInt("quantity"),
                 rs.getDouble("cost"),
                 rs.getString("symbol"),
-                rs.getString("owner")
+                rs.getString("owner"),
+                rs.getLong("cart_id")
         );
     }
 }
