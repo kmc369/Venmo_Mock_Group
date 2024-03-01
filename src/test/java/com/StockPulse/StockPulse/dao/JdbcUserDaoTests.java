@@ -25,7 +25,7 @@ public class JdbcUserDaoTests extends BaseDaoTests {
     @Before
     public void setup(){
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        dao = new JdbcUserDao(jdbcTemplate);
+        dao = new JdbcUserDao(null, jdbcTemplate);
     }
 
 
