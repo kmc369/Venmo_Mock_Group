@@ -1,7 +1,7 @@
 package com.StockPulse.StockPulse.dao;
 
 import com.StockPulse.StockPulse.models.Stock;
-
+//update
 // Will contain the CRUD methods to implement in the JDBC Layer
 public interface StockDao {
     // TODO - Create Stock
