@@ -3,8 +3,7 @@ package com.StockPulse.StockPulse.dao;
 import com.StockPulse.StockPulse.models.Stock;
 import java.util.List;
 
-// Will contain the CRUD methods to implement in the JDBC Layer without exposing details of database interation
-// interation and maniupulation
+// Will contain the CRUD methods to implement in the JDBC Layer
 public interface StockDao {
     Stock findById(long id);
 

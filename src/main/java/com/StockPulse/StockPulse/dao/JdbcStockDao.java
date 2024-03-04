@@ -102,7 +102,7 @@ public class JdbcStockDao implements StockDao {
                 rs.getDouble("cost"),
                 rs.getString("symbol"),
                 rs.getString("owner"),
-                rs.getLong("cart_id")
+                rs.getLong("card_id")
         );
     }
 }
