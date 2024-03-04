@@ -24,9 +24,9 @@ public class JdbcStockDao implements StockDao {
     //find all users
     private static final String SQL_FIND_ALL = "SELECT * FROM stocks";
     //insert new user to database
-    private static final String SQL_INSERT = "INSERT INTO stocks (stock_id, quantity, cost, symbol, owner, cart_id) VALUES (?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO stocks (stock_id, quantity, cost, symbol, owner, card_id) VALUES (?, ?, ?, ?, ?)";
     //update an existing user to database
-    private static final String SQL_UPDATE = "UPDATE stocks SET stock_id = ?, quantity = ?, cost = ?, symbol = ?, owner = ?, cart_id = ? WHERE id = ?";
+    private static final String SQL_UPDATE = "UPDATE stocks SET stock_id = ?, quantity = ?, cost = ?, symbol = ?, owner = ?, card_id = ? WHERE id = ?";
     //delete user by identifer
     private static final String SQL_DELETE_BY_ID = "DELETE FROM stocks WHERE id = ?";
 
@@ -72,7 +72,7 @@ public class JdbcStockDao implements StockDao {
     @Override
     public Stock getStock() {
         // TODO - Read/Get Info of Stock logic implementation
-        var sql = "SELECT stock_id, quantity, cost, symbol, owner, cart_id FROM stocks WHERE stock_id = ?;";
+        var sql = "SELECT stock_id, quantity, cost, symbol, owner, card_id FROM stocks WHERE stock_id = ?;";
         Stock stock = null;
         try{
             SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
