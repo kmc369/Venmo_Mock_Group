@@ -50,11 +50,23 @@ public class JdbcStockDao implements StockDao {
     public void createStock() {
         // TODO - Create Stock logic implementation
         stockController.createStock();
+        var sql = SQL_INSERT;
+        try {
+            jdbcTemplate.update(sql, stockController);
+        } catch (Exception e) {
+            System.out.println("Error in Creating Stock");
+        }
     }
 
     @Override
     public void updateStock(Stock stock) {
         // TODO - Update Stock logic implementation
+        var sql = SQL_UPDATE;
+        try {
+            jdbcTemplate.update(sql, stock);
+        } catch (Exception e) {
+            System.out.println("Error in Updating Stock");
+        }
     }
 
     @Override
@@ -75,7 +87,12 @@ public class JdbcStockDao implements StockDao {
 
     @Override
     public void deleteStock(long stockId) {
-        // TODO - Delete Stock logic implementation
+        var sql = SQL_DELETE_BY_ID;
+        try {
+            jdbcTemplate.update(sql, stockId);
+        } catch (Exception e) {
+            System.out.println("Error in Deleting Stock");
+        }
     }
 
     private Stock mapToStock(SqlRowSet rs){
