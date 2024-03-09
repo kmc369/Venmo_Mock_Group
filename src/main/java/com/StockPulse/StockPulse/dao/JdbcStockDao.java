@@ -36,22 +36,22 @@ public class JdbcStockDao implements StockDao {
 
     @Override
     public void updatePriceOfStock(Stock stock) {
-            // TODO - Update Price of Stock logic implementation
-        }
-
-        @Override
-        public void updateOwnerOfStock(Stock stock) {
-            // TODO - Update Owner of Stock logic implementation
-        }
-
-        @Override
-        public Stock getStock(Stock stock) {
-            // TODO - Read/Get Info of Stock logic implementation
-            return null;
-        }
-
-        @Override
-        public void deleteStock(Long stockId) {
-            // TODO - Delete Stock logic implementation
-        }
+        // TODO - Update Price of Stock logic implementation
     }
+
+    @Override
+    public void updateOwnerOfStock(Stock stock) {
+        // TODO - Update Owner of Stock logic implementation
+    }
+
+    @Override
+    public Stock getStock(Stock stock) {
+        // TODO - Read/Get Info of Stock logic implementation
+        return null;
+    }
+
+    @Override
+    public void deleteStock(Long stockId) {
+        // TODO - Delete Stock logic implementation
+    }
+}
