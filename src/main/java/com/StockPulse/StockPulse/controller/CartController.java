@@ -23,7 +23,7 @@ public class CartController {
         return null;
     }
 
-
+ 
     @DeleteMapping("/api/cart/stock/{id}")
     public ResponseEntity<Stock> deleteFromCart(int stock_id, int cart_id) {
         //find the cart by the id

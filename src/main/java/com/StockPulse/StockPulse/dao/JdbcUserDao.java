@@ -6,6 +6,7 @@ import com.StockPulse.StockPulse.models.RegisterUserDTO;
 import com.StockPulse.StockPulse.models.User;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -32,7 +33,6 @@ public class JdbcUserDao implements UserDao {
     //delete user by identifer
     private static final String SQL_DELETE_BY_ID = "DELETE FROM users WHERE id = ?";
 
-
     //JDBC Connectivity Object
     private JdbcTemplate jdbcTemplate;
 
@@ -46,6 +46,7 @@ public class JdbcUserDao implements UserDao {
         return null;
     }
 
+
     @Override
     public void save(User user) {
 
@@ -53,11 +54,36 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public void update(User user) {
+        // TODO - Read/Get User logic implementation
+        var sql = "SELECT user_id , username, password FROM users WHERE username = ?;";
+        User user = null;
+        try{
+            SqlRowSet result = jdbcTemplate.queryForRowSet(sql, dto.getUsername());
+            if (result.next()){
+                user = mapToUser(result);
+            }
+        } catch (Exception e){
+            System.out.println("Error in User Query");
+        }
+        return user;
+    }
+
+    @Override
+    public void deleteUser(Long userId) {
+        // TODO - Delete User logic implementation
 
     }
 
     @Override
     public void deleteById(Long id) {
 
+    }
+
+    private User mapToUser(SqlRowSet rs){
+        return new User(
+                rs.getLong("user_id"),
+                rs.getString("username"),
+                rs.getString("password")
+        );
     }
 }

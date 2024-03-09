@@ -12,9 +12,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class User {
 
-    private Long id;
+    private Long user_id;
     private String username;
     private String password;
-    private String email;
 
 }

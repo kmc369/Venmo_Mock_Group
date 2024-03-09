@@ -15,4 +15,6 @@ public class Stock {
     private int quantity;
     private double cost;
     private String owner;
+    private Long card_id;
+    private String symbol;
 }
