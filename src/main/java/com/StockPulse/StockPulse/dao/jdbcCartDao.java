@@ -1,13 +1,12 @@
 package com.StockPulse.StockPulse.dao;
 
 
-import com.StockPulse.StockPulse.models.LoginUserDTO;
-import com.StockPulse.StockPulse.models.RegisterUserDTO;
 import com.StockPulse.StockPulse.models.Stock;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 /*
    Implements the CRUD operations from the UserDao interface and will pass
@@ -15,33 +14,24 @@ import org.springframework.stereotype.Component;
 */
 
 
-@AllArgsConstructor
-@Component
-public class JdbcUserDao implements CartDao {
+// @AllArgsConstructor
+// @Component
 
-    //JDBC Connectivity Object
-    private JdbcTemplate jdbcTemplate;
 
-    @Override
-    public void addStockToCart(RegisterUserDTO dto) {
+@Repository
+public class JdbcCartDao implements CartDao {
 
-        // TODO - Create User logic implementation
+    private final JdbcTemplate jdbcTemplate;
 
+    public JdbcCartDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
-    
-
-
     @Override
-    public void deleteStockFromCart(int userId) {
-
-        // TODO - Delete User logic implementation
-
+    public void addStockToCart(int stockId, int cartId) {
+        String sql = "INSERT INTO cart_stock (cart_id, stock_id) VALUES (?, ?)";
+        jdbcTemplate.update(sql, cartId, stockId);
     }
 
-
-
-
-
-
+ 
 }

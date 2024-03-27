@@ -1,12 +1,13 @@
 package com.StockPulse.StockPulse.models;
 
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import com.StockPulse.models.Stock;
+import com.StockPulse.StockPulse.models.Stock;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,13 +19,6 @@ public class CartDTO {
     private Long id;
     private List <Stock> stocks;
 
-    public CartDTO() {
-    }
-
-    public CartDTO(Long id, List<Stock> stocks) {
-        this.id = id;
-        this.stocks = stocks;
-    }
 
     public CartDTO id(Long id) {
         setId(id);
@@ -57,29 +51,7 @@ public class CartDTO {
 
    
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof CartDTO)) {
-            return false;
-        }
-        CartDTO cartDTO = (CartDTO) o;
-        return Objects.equals(id, cartDTO.id) && Objects.equals(stocks, cartDTO.stocks);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, stocks);
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", stocks='" + getStocks() + "'" +
-            "}";
-    }
     
 
 }
