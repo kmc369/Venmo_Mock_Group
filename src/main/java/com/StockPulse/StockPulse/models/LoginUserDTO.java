@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class LoginUserDTO {
 
-    private String email;
+    private String username;
     private String password;
 
 }

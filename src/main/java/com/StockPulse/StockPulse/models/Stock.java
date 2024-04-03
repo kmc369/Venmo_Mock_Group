@@ -10,10 +10,12 @@ import lombok.RequiredArgsConstructor;
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class User {
-
-    private Long user_id;
-    private String username;
-    private String password;
-
+public class Stock {
+    private Long stock_id;
+    private int quantity;
+    private double cost;
+    private String name;
+    private String owner;
+    // private Long card_id;
+    // private String symbol;
 }
