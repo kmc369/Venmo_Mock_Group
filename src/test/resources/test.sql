@@ -11,26 +11,38 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE carts (
-  cart_id integer REFERENCES users(user_id) UNIQUE
-);
-
 CREATE TABLE stocks (
- stockid serial primary key,
- quantity integer, cost decimal(6,2),
- symbol varchar, owner varchar,
- cart_id integer,
- foreign key(cart_id) references carts(cart_id),
+ stock_id serial PRIMARY KEY,
+ quantity INTEGER,
+ cost DECIMAL(6,2),
+ symbol VARCHAR,
+ owner VARCHAR,
  CHECK (quantity >= 0), CHECK (cost >= 0)
 );
 
-INSERT into users(username, password)
-VALUES ('John Doe', 'Hello');
+CREATE TABLE carts (
+  cart_id INTEGER REFERENCES users(user_id) UNIQUE,
+  stock_id INTEGER REFERENCES stocks(stock_id) UNIQUE,
+  user_stock_quantity_to_buy INTEGER
+);
 
-
-
+CREATE TABLE portfolio (
+    portfolio_id serial PRIMARY KEY,
+    user_id INTEGER,
+    stock_id INTEGER,
+    user_owned_stock_quantity INTEGER,
+    FOREIGN KEY(user_id) REFERENCES users(user_id),
+    FOREIGN KEY(stock_id) REFERENCES stocks(stock_id)
+);
 
 
 COMMIT;
 
 
+INSERT INTO users(username, password) VALUES ('John Doe', 'Hello');
+
+INSERT INTO stocks(quantity, cost, symbol, owner) VALUES (1000, 100.00, 'ABC', 'Google Inc.');
+
+INSERT INTO carts(cart_id, stock_id, user_stock_quantity_to_buy) VALUES (1, 1, 100);
+
+INSERT INTO portfolio(user_id, stock_id, quantity) VALUES (1, 1, 100);

@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class JdbcUserDaoTests extends BaseDaoTests {
 
+
     // This comes from the actual insert statement from sql
     private static final User TEST_USER = new User(Long.parseLong("1"),"John Doe","Hello");
 
@@ -27,7 +28,6 @@ public class JdbcUserDaoTests extends BaseDaoTests {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         dao = new JdbcUserDao(null, jdbcTemplate);
     }
-
 
 
     // Create test TODO
