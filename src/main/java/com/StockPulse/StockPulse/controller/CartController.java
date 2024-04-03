@@ -3,6 +3,7 @@ package com.StockPulse.StockPulse.controller;
 import java.util.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.StockPulse.StockPulse.models.Stock;
 import com.StockPulse.StockPulse.services.CartService;
@@ -11,6 +12,7 @@ import com.StockPulse.StockPulse.services.CartService;
 @RequestMapping("/api/cart")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CartController {
+
     
     @Autowired
     private CartService cartService;
@@ -35,4 +37,7 @@ public class CartController {
     //     //remove it from the cart
     //     return updatedStockList;
     // }
+
+
+   
 }
