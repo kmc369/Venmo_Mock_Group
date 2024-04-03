@@ -1,5 +1,6 @@
 package com.StockPulse.StockPulse.dao;
 
+import org.springframework.stereotype.Repository;
 
 import com.StockPulse.StockPulse.models.LoginUserDTO;
 import com.StockPulse.StockPulse.models.RegisterUserDTO;
@@ -12,10 +13,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 
-/*
-   Implements the CRUD operations from the UserDao interface and will pass
-   objects to the UserService to encapsulate it then pass it to the controller.
-*/
 
 
 @AllArgsConstructor
@@ -36,48 +33,48 @@ public class JdbcUserDao implements UserDao {
     //JDBC Connectivity Object
     private JdbcTemplate jdbcTemplate;
 
-    @Override
-    public User findById(Long id) {
-        return null;
-    }
+    // @Override
+    // public User findById(Long id) {
+    //     return null;
+    // }
 
-    @Override
-    public List<User> findAll() {
-        return null;
-    }
+    // @Override
+    // public List<User> findAll() {
+    //     return null;
+    // }
 
 
-    @Override
+ 
     public void save(User user) {
-
+        
     }
 
-    @Override
-    public void update(User user) {
-        // TODO - Read/Get User logic implementation
-        var sql = "SELECT user_id , username, password FROM users WHERE username = ?;";
-        User user = null;
-        try{
-            SqlRowSet result = jdbcTemplate.queryForRowSet(sql, dto.getUsername());
-            if (result.next()){
-                user = mapToUser(result);
-            }
-        } catch (Exception e){
-            System.out.println("Error in User Query");
-        }
-        return user;
-    }
+    // @Override
+    // public void update(User user) {
+    //     // TODO - Read/Get User logic implementation
+    //     var sql = "SELECT user_id , username, password FROM users WHERE username = ?;";
+    //     user = null;
+    //     try{
+    //         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, dto.getUsername());
+    //         if (result.next()){
+    //             user = mapToUser(result);
+    //         }
+    //     } catch (Exception e){
+    //         System.out.println("Error in User Query");
+    //     }
+    //     return user;
+    // }
 
-    @Override
-    public void deleteUser(Long userId) {
-        // TODO - Delete User logic implementation
+    // @Override
+    // public void deleteUser(Long userId) {
+    //     // TODO - Delete User logic implementation
 
-    }
+    // }
 
-    @Override
-    public void deleteById(Long id) {
+    // @Override
+    // public void deleteById(Long id) {
 
-    }
+    // }
 
     private User mapToUser(SqlRowSet rs){
         return new User(

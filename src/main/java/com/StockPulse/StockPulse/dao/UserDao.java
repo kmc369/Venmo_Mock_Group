@@ -9,18 +9,18 @@ import java.util.List;
 // Will contain the CRUD methods to implement in the JDBC Layer without exposing details of database interation
 //interation and maniupulation
 public interface UserDao {
-    User findById(Long id);
+    // User findById(Long id);
 
-    List<User> findAll();
+    // List<User> findAll();
 
     void save(User user);
 
-    //TODO update user
-    void update(User user);
+    // //TODO update user
+    // void update(User user);
 
     //TODO delete user
-    void deleteById(Long id);
+    // void deleteById(Long id);
 
-    // TODO - Delete User
-    void deleteUser(Long userId);
+    // // TODO - Delete User
+    // void deleteUser(Long userId);
 }

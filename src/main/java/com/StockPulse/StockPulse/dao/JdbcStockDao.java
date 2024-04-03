@@ -30,7 +30,7 @@ public class JdbcStockDao implements StockDao {
             return stock;
         });
     }
-}
+
 
 
 
@@ -43,12 +43,7 @@ public class JdbcStockDao implements StockDao {
    to encapsulate it then pass it to the controller.
 */
 
-@AllArgsConstructor
-@Component
-public class JdbcStockDao implements StockDao {
-    
-    //JDBC Connectivity Object
-    private JdbcTemplate jdbcTemplate;
+
 
     @Override
     public void createStock(Stock stock) {

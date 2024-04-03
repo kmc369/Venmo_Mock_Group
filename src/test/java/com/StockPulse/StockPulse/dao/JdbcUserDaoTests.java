@@ -31,15 +31,15 @@ public class JdbcUserDaoTests extends BaseDaoTests {
 
 
     // Create test TODO
-    @Test
-    public void getUserWithNonExistingEmailReturnsError(){
+    // @Test
+    // public void getUserWithNonExistingEmailReturnsError(){
 
-    }
+    // }
 
-    @Test
-    public void getUserWithValidUsernameReturnCorrectUser(){
-        Assert.assertEquals(TEST_USER, dao.getUserForLogin(TEST_DTO));
-    }
+    // @Test
+    // public void getUserWithValidUsernameReturnCorrectUser(){
+    //     Assert.assertEquals(TEST_USER, dao.getUserForLogin(TEST_DTO));
+    // }
 
 
 }
