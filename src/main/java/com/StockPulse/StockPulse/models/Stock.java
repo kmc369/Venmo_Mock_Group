@@ -14,5 +14,6 @@ public class Stock {
     private Long stock_id;
     private int quantity;
     private double cost;
+    private String name;
     private String owner;
 }

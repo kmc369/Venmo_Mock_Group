@@ -26,7 +26,7 @@ public class CartService {
         String sql = "SELECT * FROM cart_stock WHERE cart_id = ?";
         List<Stock> updatedStockList = jdbcTemplate.query(sql, new Object[]{cartId}, (rs, rowNum) ->
                 // new Stock(rs.getInt("stock_id"), rs.getString("name"), rs.getDouble("price")));
-                new Stock(rs.getLong("stock_id"), rs.getInt("quantity"), rs.getDouble("cost"), rs.getString("owner")));
+                new Stock(rs.getLong("stock_id"), rs.getInt("quantity"), rs.getDouble("cost"),rs.getString("name"), rs.getString("owner")));
 
         return updatedStockList;
     }
