@@ -1,11 +1,15 @@
 package com.StockPulse.StockPulse.controller;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import com.StockPulse.StockPulse.services.StockService;
 import com.StockPulse.StockPulse.models.Stock;
+import com.StockPulse.StockPulse.services.StockService;
 
+@RestController
+@RequestMapping("/api/stocks")
+@CrossOrigin(origins = "http://localhost:3000")
 public class StockController {
     // This class will be updated later.
 
@@ -15,15 +19,26 @@ public class StockController {
     @Autowired
     private StockService stockService;
 
+
+    @GetMapping("/")
+    public List<Stock> getAllStock() {
+        return stockService.getAllStock();
+
     @PostMapping("/create_stock")
     public ResponseEntity<Stock> createStock() {
         return stockService.returnsResponseForCreatingStockEntity();
+
     }
 
     @PostMapping("/update_quantity")
     public void updateQuantity(int newQuantity) {
         // This method will be implemented later.
     }
+
+
+
+    @GetMapping("/cost")
+    public void getCost() {
 
     @PostMapping("/update_owner")
     public void updateOwner(String newOwner) {
@@ -54,12 +69,20 @@ public class StockController {
 
     @GetMapping("/get_quantity")
     public int getQuantity() {
+
         // This method will be implemented later.
         return 0;
     }
 
+
+   
+
+    @GetMapping("")
+    public void getOwner() {
+
     @GetMapping("/get_id")
     public long getId() {
+
         // This method will be implemented later.
         return 0;
     }

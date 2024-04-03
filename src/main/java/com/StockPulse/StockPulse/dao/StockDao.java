@@ -1,9 +1,17 @@
 package com.StockPulse.StockPulse.dao;
 
 import com.StockPulse.StockPulse.models.Stock;
+
+
+import java.util.List;
+
+
+public interface StockDao {
+    List<Stock> getAllStocks();
+
 //update
 // Will contain the CRUD methods to implement in the JDBC Layer
-public interface StockDao {
+
     // TODO - Create Stock
     void createStock(Stock stock);
 
@@ -18,4 +26,5 @@ public interface StockDao {
 
     // TODO - Delete Stock
     void deleteStock(Long stockId);
+
 }
