@@ -33,6 +33,10 @@ public class JdbcUserDao implements UserDao {
     //JDBC Connectivity Object
     private JdbcTemplate jdbcTemplate;
 
+    public JdbcUserDao(Object object, JdbcTemplate jdbcTemplate2) {
+        //TODO Auto-generated constructor stub
+    }
+
     // @Override
     // public User findById(Long id) {
     //     return null;

@@ -8,7 +8,7 @@ public interface CartDao {
 
     void addStockToCart(int stockId, int cartId);
 
-  
+    void removeStockFromCart(int stockId, int cartId);
 
 
     

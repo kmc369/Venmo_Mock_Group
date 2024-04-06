@@ -30,4 +30,16 @@ public class CartService {
 
         return updatedStockList;
     }
+
+    public List<Stock> removeStockFromCart(int stockId, int cartId) {
+        jdbcCartDao.removeStockFromCart(stockId, cartId); // Remove stock from cart in the database
+
+        // Now you can fetch the updated list of stocks for the cart from the database
+        String sql = "SELECT * FROM cart_stock WHERE cart_id = ?";
+        List<Stock> updatedStockList = jdbcTemplate.query(sql, new Object[]{cartId}, (rs, rowNum) ->
+                // new Stock(rs.getInt("stock_id"), rs.getString("name"), rs.getDouble("price")));
+                new Stock(rs.getLong("stock_id"), rs.getInt("quantity"), rs.getDouble("cost"),rs.getString("name"), rs.getString("owner")));
+
+        return updatedStockList;
+    }
 }
