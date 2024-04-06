@@ -33,5 +33,9 @@ public class JdbcCartDao implements CartDao {
         jdbcTemplate.update(sql, cartId, stockId);
     }
 
- 
+    @Override
+    public void removeStockFromCart(int stockId, int cartId) {
+        String sql = "DELETE FROM cart_stock WHERE stock_id = ? AND cart_id = ?";
+        jdbcTemplate.update(sql, cartId, stockId);
+    }
 }

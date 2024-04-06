@@ -28,6 +28,17 @@ public class CartController {
         }
     }
 
+    @PostMapping("/{cartId}/removeStock")
+    public ResponseEntity<List<Stock>> removeStockFromCart(@PathVariable("cartId") int cartId,
+                                                      @RequestParam("stockId") int stockId) {
+        List<Stock> updatedStockList = cartService.removeStockFromCart(stockId, cartId);
+        if (!updatedStockList.isEmpty()) {
+            return ResponseEntity.ok(updatedStockList);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
     // @DeleteMapping("/api/cart/stock/{id}")
     // public List<Stock> deleteFromCart(int stock_id, int cart_id) {
