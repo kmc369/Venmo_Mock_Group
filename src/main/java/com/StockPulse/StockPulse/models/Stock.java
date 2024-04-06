@@ -11,10 +11,11 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Stock {
-    private long stock_id;
+    private Long stock_id;
     private int quantity;
     private double cost;
-    private String symbol;
+    private String name;
     private String owner;
-    private long card_id;
+    // private Long card_id;
+    // private String symbol;
 }

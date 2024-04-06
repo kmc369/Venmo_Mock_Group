@@ -1,24 +1,40 @@
 package com.StockPulse.StockPulse.services;
 
+
+import com.StockPulse.StockPulse.dao.StockDao;
+import com.StockPulse.StockPulse.models.CartDTO;
+
+
 import com.StockPulse.StockPulse.dao.JdbcStockDao;
+
 import com.StockPulse.StockPulse.models.Stock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+
 @Service
-public class StockService {
-    /*
-    This Class is responsible to return the Response Entity to the controller
-    which will contain the Stock Object Plus the Response Code all in one
-    */
+public class StockService{
+
 
     @Autowired
-    private JdbcStockDao dao;
+    private StockDao stockDao;
 
-    // Accepts the Information required to create Stock TODO
-    public ResponseEntity<Stock> returnsResponseForCreatingStockEntity(){
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
-        return ResponseEntity.ok(new Stock());
+    public List<Stock> getAllStock(){
+        return stockDao.getAllStocks();
     }
+
+
+
+
 }
+
+
+
+

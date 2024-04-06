@@ -1,7 +1,7 @@
 package com.StockPulse.StockPulse.dao;
 
+import org.springframework.stereotype.Repository;
 
-import com.StockPulse.StockPulse.controller.UserController;
 import com.StockPulse.StockPulse.models.LoginUserDTO;
 import com.StockPulse.StockPulse.models.RegisterUserDTO;
 import com.StockPulse.StockPulse.models.User;
@@ -10,11 +10,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 
-/*
-   Implements the CRUD operations from the UserDao interface and will pass
-   objects to the UserService to encapsulate it then pass it to the controller.
-*/
+
 
 
 @AllArgsConstructor
@@ -26,73 +24,57 @@ public class JdbcUserDao implements UserDao {
     //find all users
     private static final String SQL_FIND_ALL = "SELECT * FROM users";
     //insert new user to database
-    private static final String SQL_INSERT = "INSERT INTO users (user_id, username, password) VALUES (?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO users (username, password, email, last_login) VALUES (?, ?, ?, ?)";
     //update an existing user to database
-    private static final String SQL_UPDATE = "UPDATE users SET user_id = ?, username = ?, password = ? WHERE id = ?";
+    private static final String SQL_UPDATE = "UPDATE users SET username = ?, password = ?, email = ?, last_login = ? WHERE id = ?";
     //delete user by identifer
     private static final String SQL_DELETE_BY_ID = "DELETE FROM users WHERE id = ?";
-
-    //StockController Object
-    private UserController userController;
 
     //JDBC Connectivity Object
     private JdbcTemplate jdbcTemplate;
 
-    @Override
-    public void RegisterUser(RegisterUserDTO dto) {
+    // @Override
+    // public User findById(Long id) {
+    //     return null;
+    // }
 
-        // TODO - Create User logic implementation
-        userController.registerUser(dto);
-        var sql = SQL_INSERT;
-        try {
-            jdbcTemplate.update(sql, dto);
-        } catch (Exception e) {
-            System.out.println("Error in User Creation");
-        }
+    // @Override
+    // public List<User> findAll() {
+    //     return null;
+    // }
+
+
+ 
+    public void save(User user) {
+        
     }
 
-    @Override
-    public void editUser(User user) {
+    // @Override
+    // public void update(User user) {
+    //     // TODO - Read/Get User logic implementation
+    //     var sql = "SELECT user_id , username, password FROM users WHERE username = ?;";
+    //     user = null;
+    //     try{
+    //         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, dto.getUsername());
+    //         if (result.next()){
+    //             user = mapToUser(result);
+    //         }
+    //     } catch (Exception e){
+    //         System.out.println("Error in User Query");
+    //     }
+    //     return user;
+    // }
 
-        // TODO - Update User logic implementation
-        var sql = SQL_UPDATE;
-        try {
-            jdbcTemplate.update(sql, user);
-        } catch (Exception e) {
-            System.out.println("Error in Updating User");
-        }
-    }
+    // @Override
+    // public void deleteUser(Long userId) {
+    //     // TODO - Delete User logic implementation
 
+    // }
 
-    @Override
-    public User getUserForLogin(LoginUserDTO dto) {
+    // @Override
+    // public void deleteById(Long id) {
 
-        // TODO - Read/Get User logic implementation
-        var sql = "SELECT user_id, username, password FROM users WHERE username = ?;";
-        User user = null;
-        try{
-            SqlRowSet result = jdbcTemplate.queryForRowSet(sql, dto.getUsername());
-            if (result.next()){
-                user = mapToUser(result);
-            }
-        } catch (Exception e) {
-            System.out.println("Error in User Query");
-        }
-        return user;
-    }
-
-    @Override
-    public void deleteUser(long userId) {
-
-        // TODO - Delete User logic implementation
-        var sql = SQL_DELETE_BY_ID;
-        try {
-            jdbcTemplate.update(sql, userId);
-        } catch (Exception e) {
-            System.out.println("Error in Deleting User");
-        }
-    }
-
+    // }
 
     private User mapToUser(SqlRowSet rs){
         return new User(
@@ -101,9 +83,4 @@ public class JdbcUserDao implements UserDao {
                 rs.getString("password")
         );
     }
-
-
-
-
-
 }
