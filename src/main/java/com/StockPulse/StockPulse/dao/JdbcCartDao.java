@@ -1,10 +1,6 @@
 package com.StockPulse.StockPulse.dao;
 
 
-import com.StockPulse.StockPulse.models.Stock;
-import lombok.AllArgsConstructor;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 

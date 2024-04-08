@@ -1,5 +1,6 @@
 package com.StockPulse.StockPulse.dao;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import com.StockPulse.StockPulse.models.LoginUserDTO;
@@ -16,6 +17,7 @@ import java.util.List;
 
 
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Component
 public class JdbcUserDao implements UserDao {
 
