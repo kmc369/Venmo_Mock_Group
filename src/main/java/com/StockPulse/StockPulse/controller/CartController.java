@@ -13,7 +13,6 @@ import com.StockPulse.StockPulse.services.CartService;
 @CrossOrigin(origins = "http://localhost:3000")
 public class CartController {
 
-    
     @Autowired
     private CartService cartService;
 
