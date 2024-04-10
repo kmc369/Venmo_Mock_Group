@@ -12,8 +12,7 @@ import com.StockPulse.StockPulse.models.Stock;
 @RequestMapping("/api/cart")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CartController {
-    
-    @Autowired
+
     private List<Stock> cartList;
 
     public CartController() {
